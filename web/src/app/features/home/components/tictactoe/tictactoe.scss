@@ -1,0 +1,123 @@
+#tictactoe-app-container{  
+    position: relative;
+    width: 100%;
+    height: calc(100% - 20px);
+    // display: flex;
+    flex-direction: column;
+    max-height: 100%;
+
+}
+
+#upper-side{
+    height: 20px;
+    position: relative;
+    top: -20px;
+    font-size: 11px;
+    font-family: Verdana, sans-serif;
+    pointer-events: none;
+    display: flex;
+}
+#image-container{
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 2px;
+}
+#image-container > img {
+    height: 100%;
+    scale: 0.9;
+    margin-left: 1px;
+    margin-top: 1px;
+}
+#upper-side > span{
+    position: relative;
+    top: 3px;
+    margin-left: 6px;
+    user-select: none;
+}
+
+#main-container{
+    position: relative;
+    top: -20px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+}
+#game-container{
+    top: 0;
+    width: 100%;
+    min-width: 150px;
+    min-height: 150px;
+    max-width: 300px;
+    max-height: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    overflow: hidden;
+}
+#game-container > div {
+    min-height: 0; /* Allows grid cells to shrink below their content's minimum height */
+}
+#firstBox, #secondBox, #thirdBox{
+    grid-row: 1;
+    border-bottom: 1px solid black;
+    max-width: 100%;
+}
+#fourthBox, #fifthBox, #sixthBox{
+    grid-row: 2;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    max-width: 100%;
+}
+#seventhBox, #eighthBox, #ninthBox{
+    grid-row: 3;
+    border-top: 1px solid black;
+    max-width: 100%;
+}
+#firstBox, #fourthBox, #seventhBox{
+    grid-column: 1;
+    border-right: 1px solid black;
+}
+#secondBox, #fifthBox, #eighthBox{
+    grid-column: 2;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+#thirdBox, #sixthBox, #ninthBox{
+    grid-column: 3;
+    border-left: 1px solid black;
+}
+
+#message-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(149, 91, 91, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#message-container > p{
+    font-size: large;
+    font-weight: bolder;
+    // color: rgb(1, 20, 124);
+}
+
+#restart-image-container{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    // filter: blur(1px);
+}
+
+#restart-image-container > img{
+    height: 100%;
+    scale: 0.7;
+}

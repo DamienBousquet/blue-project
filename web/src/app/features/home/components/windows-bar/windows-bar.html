@@ -1,0 +1,85 @@
+<div id="main-container">
+  <div id="unmovable-app-container-left">
+    <div id="windows-logo" (click)="clickOnIcon('windows')" class="divIcon">
+      <img src="{{ windowsLogoPath }}" draggable="false" />
+    </div>
+
+    <div id="search-logo" (click)="clickOnIcon('search')" class="divIcon">
+      <img src="{{ searchLogoPath }}" draggable="false" />
+    </div>
+  </div>
+
+  <div id="movable-app-container">
+    <div
+      id="browser-logo"
+      (click)="clickOnIcon('browser')"
+      (click)="clickOnApp('browser')"
+      class="divIcon"
+      [ngStyle]="{
+        background: hasFocusedBrowser() ? 'rgba(104, 138, 250, 0.65)' : ''
+      }"
+    >
+      <div id="browser-logo-image-container">
+        <img src="{{ browserLogoPath }}" draggable="false" />
+      </div>
+      @if(isAnyBrowserRunning()){
+      <div class="working-application"></div>
+      }
+    </div>
+
+    @if(isAnyTicTacToeRunning()){
+    <div
+      id="tictactoe-logo"
+      (click)="clickOnIcon('ticTacToe')"
+      (click)="clickOnApp('ticTacToe')"
+      class="divIcon"
+      [ngStyle]="{
+        background: hasFocusedTicTacToe() ? 'rgba(104, 138, 250, 0.65)' : ''
+      }"
+    >
+      <div id="tictactoe-logo-image-container">
+        <img src="{{ tictactoePath }}" draggable="false" />
+      </div>
+      <div class="working-application"></div>
+    </div>
+    } @if(isAnyNotepadRunning()){
+    <div
+      #notepadLogo
+      id="notepad-logo"
+      (click)="clickOnIcon('notepad-desktop')"
+      (click)="clickOnApp('notepad')"
+      class="divIcon"
+      [ngStyle]="{
+        background: hasFocusedNotepad() ? 'rgba(104, 138, 250, 0.65)' : ''
+      }"
+    >
+      <div id="notepad-logo-image-container">
+        <img src="{{ notepadPath }}" draggable="false" />
+      </div>
+      <div class="working-application"></div>
+    </div>
+    @if(hasMultipleNotepadRunning()){
+    <div id="blackBar"></div>
+    } }
+    <div #emptySpace id="empty-space" (click)="clickOnIcon('empty-space')"></div>
+  </div>
+
+  <div id="unmovable-app-container-right">
+    <div id="network-logo" (click)="clickOnIcon('network')" class="divIcon">
+      <img src="{{ networkImagePath }}" draggable="false" />
+    </div>
+
+    <div id="sound-logo" (click)="clickOnIcon('volume')" class="divIcon">
+      <img [src]="volumeLogoSrc()" draggable="false" />
+    </div>
+
+    <div id="date-specification" (click)="clickOnIcon('date')" class="divIcon">
+      <div id="higher-date">
+        <div class="date">{{ date | date : 'HH:mm' }}</div>
+      </div>
+      <div id="lower-date">
+        <div class="date">{{ date | date : 'dd/MM/yyyy' }}</div>
+      </div>
+    </div>
+  </div>
+</div>

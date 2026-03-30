@@ -1,0 +1,22 @@
+@if (!isLoading()) {
+  @if (foodPlaces()!.length == 1) {
+    <p>
+      1 restaurant a été trouvé
+      @if (lastSearch() !== undefined && lastSearch()?.length !== 0) {
+        pour "{{ lastSearchText() }}"
+      }
+    </p>
+  } @else if (foodPlaces()!.length > 1) {
+    <p>
+      {{ foodPlaces()!.length }} restaurants ont été trouvés
+      @if (lastSearch() !== undefined && lastSearch()?.length !== 0) {
+        pour "{{ lastSearchText() }}"
+      }
+    </p>
+  } @else if (foodPlaces()!.length == 0) {
+    <p>
+      Aucun résultat trouvé,
+      <span class="all-food-place" (click)="goToAllFoodPlace()">Voir tous les restaurants</span>
+    </p>
+  }
+}

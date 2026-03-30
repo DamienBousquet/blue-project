@@ -1,0 +1,52 @@
+<div id="main-container">
+  <div class="title-container">
+    <p>Les restaurants populaires</p>
+  </div>
+  <div class="restaurant-list-container">
+    @for (foodPlace of foodPlaces(); let i = $index; track foodPlace.id) {
+      <div class="shape-container" [class.shape-container-responsive]="parentSize() !== 'regular'">
+        <div
+          class="front-image-container"
+          [class.front-image-container-responsive]="parentSize() !== 'regular'"
+        >
+          <img [src]="`/food-icon/id-${foodPlace.id}/front.jpg`" draggable="false" />
+        </div>
+        <div
+          class="food-place-details-container"
+          [class.food-place-details-container-responsive]="parentSize() !== 'regular'"
+        >
+          <div class="name-container">
+            <p>{{ foodPlace.name }}</p>
+          </div>
+          <div class="tags-container">
+            <p><span class="tags-name">Plats</span> : {{ foodPlace.tags }}</p>
+          </div>
+          <div class="button-go-container">
+            <button class="button-go" (click)="clickOnFoodPlace(foodPlace.id)">Y aller</button>
+          </div>
+          <div class="rating-container">
+            <div class="stars-container">
+              <div class="star-container">
+                <app-star-custom [starNumber]="1" [ratingAvg]="foodPlace.ratingAvg" />
+              </div>
+              <div class="star-container">
+                <app-star-custom [starNumber]="2" [ratingAvg]="foodPlace.ratingAvg" />
+              </div>
+              <div class="star-container">
+                <app-star-custom [starNumber]="3" [ratingAvg]="foodPlace.ratingAvg" />
+              </div>
+              <div class="star-container">
+                <app-star-custom [starNumber]="4" [ratingAvg]="foodPlace.ratingAvg" />
+              </div>
+              <div class="star-container">
+                <app-star-custom [starNumber]="5" [ratingAvg]="foodPlace.ratingAvg" />
+              </div>
+            </div>
+            <p>{{ foodPlace?.ratingAvg }}</p>
+          </div>
+        </div>
+      </div>
+    }
+    <div class="empty-space"></div>
+  </div>
+</div>

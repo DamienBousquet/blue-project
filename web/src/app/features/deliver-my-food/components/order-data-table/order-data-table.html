@@ -1,0 +1,24 @@
+<div id="main-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Numéro</th>
+        <th>Restaurant</th>
+        <th>Status</th>
+        <th>Prix (€)</th>
+        <th>Créée le</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (order of sortedOrders(); track order) {
+        <tr>
+          <td>{{ order.id }}</td>
+          <td>{{ order.foodPlaceName }}</td>
+          <td>{{ order.status }}</td>
+          <td>{{ order.totalPrice }}</td>
+          <td>{{ order.createdAt | dateFormat }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

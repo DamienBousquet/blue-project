@@ -1,0 +1,18 @@
+<div id="card-container">
+  <div id="price-container">
+    @if (dish() !== undefined && dish()?.newPrice) {
+      <p>
+        <span style="text-decoration: line-through">{{ dish()?.price | number: '1.2-2' }} €</span
+        ><span class="green">&nbsp;{{ dish()?.newPrice | number: '1.2-2' }} €</span>
+      </p>
+    } @else {
+      <p>{{ dish()?.price | number: '1.2-2' }} €</p>
+    }
+  </div>
+  <div id="image-container">
+    <img src="/food-icon/{{ dish()?.imagePath }}" draggable="false" />
+  </div>
+  <div id="name-container">
+    <p>{{ dish()?.name }}</p>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div id="main-container">
+  <div id="image-container">
+    <img src="{{ computerScreenPath }}" draggable="false" />
+    <app-main-screen
+      class="overlay main_screen"
+      [(panelToShow)]="panelToShow"
+      [(desktopApplications)]="desktopApplications"
+    ></app-main-screen>
+    <app-info-panel
+      class="overlay panel"
+      [(desktopApplications)]="desktopApplications"
+      [(panelToShow)]="panelToShow"
+      [(volumeLogoPath)]="volumeLogoPath"
+      [internetSpeed]="internetSpeed()"
+      (applicationToOpen)="onAppChangedViaSearch($event)"
+    ></app-info-panel>
+    <app-windows-bar
+      class="overlay windows_bar"
+      [(desktopApplications)]="desktopApplications"
+      (panelToShow)="iconClicked($event)"
+      [volumeLogoPath]="volumeLogoPath()"
+      [internetSpeed]="internetSpeed()"
+    ></app-windows-bar>
+  </div>
+</div>

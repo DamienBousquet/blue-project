@@ -1,0 +1,44 @@
+.green{
+    color: rgb(48, 192, 48);
+}
+.bold{
+    font-weight: bold;
+}
+p, span{
+    color: black;
+}
+
+#card-container{
+    width: 250px;
+}
+
+#price-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#price-container > p, #price-container > p > span{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#image-container{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#image-container > img{
+    height: 100%;
+    scale: 1;
+}
+
+#name-container{
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#name-container >p{
+    font-family: 'Courier New', Courier, monospace;
+}

@@ -1,0 +1,32 @@
+<div #upperSide id="upper-side">
+  @if(isTabsFull()){
+  <div id="left-arrow" class="tabs-arrow" (click)="clickPreviousTabs()">
+    <img src="/previousArrow.png" draggable="false" />
+  </div>
+  }
+  <div #tabsPlacement id="tabs-placement">
+    @for(tab of tabs(); track tab.id){
+    <div class="tab" [class.selected]="tab.isSelected" (click)="selectSpecificTab(tab.id)">
+      <div class="image-container">
+        <img src="{{ tab.logoPath }}" />
+      </div>
+      <div class="tab-title">
+        <p>{{ tab.title }}</p>
+      </div>
+      <div class="close-button-container" (click)="closeSpecificTab(tab.id, $event)">
+        <img src="/closeButton.png" draggable="false" />
+      </div>
+    </div>
+    }
+
+    <div id="new-tab-container" (click)="addTab()">
+      <img src="/add-button.png" draggable="false" />
+    </div>
+  </div>
+  @if(isTabsFull()){
+  <div id="right-arrow" class="tabs-arrow" (click)="clickNextTabs()">
+    <img src="/nextArrow.png" draggable="false" />
+  </div>
+  }
+  <div id="panel-buttons"></div>
+</div>

@@ -1,0 +1,86 @@
+#main-container{
+    height: 50px;
+    max-height: 50px;
+    width: 100%;
+    background-color: aliceblue;
+    display: flex;
+}
+
+#left-container{
+    width: 230px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#empty-left-space{
+    width: 30px;
+    height: 100%;
+}
+#logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+#logo-container > img{
+    height: 100%;
+    scale: 0.9;
+}
+#name-container{
+    width: 160px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#name-container > p{
+    color: black;
+    font-size: 22px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#right-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row-reverse;
+}
+#announcement-container{
+    // width: 320px;
+    height: 100%;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#announcement-container > span{
+    color: black;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+#money{
+    color: rgb(48, 192, 48);
+    font-weight: bold;
+    font-size: 17px;
+}
+
+#profile-container{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#profile-container > img{
+    height: 100%;
+    scale: 0.7;
+}
+
+#empty-right-space{
+    width: 30px;
+    height: 100%;
+}

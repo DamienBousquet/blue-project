@@ -1,0 +1,82 @@
+$primary-color: #4a6fa5;
+$secondary-color: #166088;
+$text-color: #333;
+$light-gray: #f8f9fa;
+
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+
+  .container {
+    text-align: center;
+    max-width: 600px;
+    background: white;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+
+      span {
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+
+      .github-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: $secondary-color;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: darken($secondary-color, 10%);
+        }
+
+        i {
+          font-size: 1.5rem;
+        }
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: $primary-color;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+
+    .note {
+      color: #777;
+      font-style: italic;
+    }
+  }
+}

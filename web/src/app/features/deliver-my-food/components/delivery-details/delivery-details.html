@@ -1,0 +1,11 @@
+<div id="main-container">
+  @if (timeLeft() > 0) {
+    <div id="delivery-details">
+      @if (timeLeft() === 1) {
+        <p>Temps restant < 1 minute</p>
+      } @else {
+        <p>Temps restant : {{ timeLeft() }} minutes</p>
+      }
+    </div>
+  }
+</div>

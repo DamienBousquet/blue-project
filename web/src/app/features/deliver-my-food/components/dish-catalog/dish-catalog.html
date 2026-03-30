@@ -1,0 +1,69 @@
+<div id="main-container">
+  @if (isLoading()) {
+    <app-loader />
+  } @else {
+    @if (!isLoading() && hasFoodPlaceButNoneSelected()) {
+      <div id="message-container">
+        <p>Veuillez sélectionner un restaurant</p>
+      </div>
+    } @else if (hasDishes()) {
+      <div id="first-row">
+        @if (isFirstRowFull()) {
+          <div class="arrow-container">
+            <div class="left-arrow" class="arrow" (click)="clickPrevious(1)">
+              <img src="/previous-arrow-black.png" draggable="false" />
+            </div>
+          </div>
+        }
+        <div id="first-row-context" #firstRowContext>
+          @for (dish of dishesFirstRow; track dish.id) {
+            <div class="dish-container">
+              <app-dish-card [dish]="dish" />
+              <div class="quantity-selector-container">
+                <button class="quantity-button" (click)="decrementQuantity(dish)">-</button>
+                <span>{{ safeDishQuantities().getQuantity(dish.id) }}</span>
+                <button class="quantity-button" (click)="incrementQuantity(dish)">+</button>
+              </div>
+            </div>
+          }
+        </div>
+        @if (isFirstRowFull()) {
+          <div class="arrow-container">
+            <div class="right-arrow" class="arrow" (click)="clickNext(1)">
+              <img src="/next-arrow-black.png" draggable="false" />
+            </div>
+          </div>
+        }
+      </div>
+      <!-- 2nd row -->
+      <div id="second-row">
+        @if (isSecondRowFull()) {
+          <div class="arrow-container">
+            <div class="left-arrow" class="arrow" (click)="clickPrevious(2)">
+              <img src="/previous-arrow-black.png" draggable="false" />
+            </div>
+          </div>
+        }
+        <div id="second-row-context" #secondRowContext>
+          @for (dish of dishesSecondRow; track dish.id) {
+            <div class="dish-container">
+              <app-dish-card [dish]="dish" />
+              <div class="quantity-selector-container">
+                <button class="quantity-button" (click)="decrementQuantity(dish)">-</button>
+                <span>{{ safeDishQuantities().getQuantity(dish.id) }}</span>
+                <button class="quantity-button" (click)="incrementQuantity(dish)">+</button>
+              </div>
+            </div>
+          }
+        </div>
+        @if (isSecondRowFull()) {
+          <div class="arrow-container">
+            <div class="right-arrow" class="arrow" (click)="clickNext(2)">
+              <img src="/next-arrow-black.png" draggable="false" />
+            </div>
+          </div>
+        }
+      </div>
+    }
+  }
+</div>

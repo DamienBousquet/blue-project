@@ -1,0 +1,38 @@
+<div id="tictactoe-app-container">
+  <div id="upper-side">
+    <div id="image-container">
+      <img src="/Tic-tac-toe.png" />
+    </div>
+    <span>Tic tac toe</span>
+  </div>
+
+  <div id="main-container">
+    <div id="game-container">
+      <div id="firstBox" #box></div>
+      <div id="secondBox" #box></div>
+      <div id="thirdBox" #box></div>
+      <div id="fourthBox" #box></div>
+      <div id="fifthBox" #box></div>
+      <div id="sixthBox" #box></div>
+      <div id="seventhBox" #box></div>
+      <div id="eighthBox" #box></div>
+      <div id="ninthBox" #box></div>
+    </div>
+    @if (winner != 0) {
+      <div id="message-container">
+        @if (winner == 1) {
+          <p>Victoire</p>
+        }
+        @if (winner == 2) {
+          <p>Défaite</p>
+        }
+        @if (winner == 3) {
+          <p>Égalité</p>
+        }
+        <div id="restart-image-container" (click)="clickOnRestart()">
+          <img src="{{ restartPath }}" draggable="false" />
+        </div>
+      </div>
+    }
+  </div>
+</div>

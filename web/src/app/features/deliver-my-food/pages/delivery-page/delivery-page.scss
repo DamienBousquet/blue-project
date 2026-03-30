@@ -1,0 +1,25 @@
+#main-container{
+    min-height: 495px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+#loader-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.error-message{
+    font-size: 22px;
+    color: black;
+}

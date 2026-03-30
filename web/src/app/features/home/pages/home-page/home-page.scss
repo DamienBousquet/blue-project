@@ -1,0 +1,47 @@
+img::selection {
+  outline: none;
+}
+
+#main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#image-container {
+  display: block;
+  width: 100%;
+}
+
+#image-container img {
+  width: 1920px;
+  height: auto;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  color: white;
+}
+
+.main_screen {
+  // background: rgba(133, 21, 73, 0.6);
+  top: 142px;
+  left: 318px;
+  width: 1283px;
+  height: 670px;
+}
+
+.panel {
+  top: 0;
+  left: 0;
+}
+
+.windows_bar {
+  top: 812px;
+  left: 318px;
+  // width: 1283px;
+  // height: 40px;
+}

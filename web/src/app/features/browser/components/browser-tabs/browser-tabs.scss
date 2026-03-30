@@ -1,0 +1,128 @@
+p{
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+#upper-side{
+    height: 20px;
+    max-width: 100%;
+    position: relative;
+    top: -20px;
+    font-size: 11px;
+    font-family: Verdana, sans-serif;
+    pointer-events:none;
+    display: flex;
+}
+#tabs-placement{
+    display: flex;
+    width: calc(100% - 85px);
+    overflow: hidden;
+}
+#panel-buttons{
+    width: 65px;
+    height: 100%;
+}
+
+.tab{
+    pointer-events:all;
+    position: relative;
+    top: 2px;
+    margin-left: 4px;
+    user-select: none;
+    display: flex;
+    height: 18px;
+    width: 140px;
+    min-width: 80px;
+    max-width: 30%;
+}
+.selected{
+    background-color: #3737f4;
+}
+.image-container{
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.image-container > img {
+    height: 100%;
+    scale: 0.8;
+    // margin-left: 1px;
+    // margin-top: 1px;
+    margin-bottom: 1px;
+}
+.tab-title{
+    width: 102px;
+    max-width: calc(100% - 35px); //35 = 18 (image) + 17 (button)
+}
+.tab-title > p {
+    margin-top: 2px;
+    margin-left: 2px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 90%;
+}
+.close-button-container{
+    pointer-events: all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 17px;
+    height: 17px;
+    margin-top: 1px;
+}
+
+.close-button-container > img{
+    height: 100%;
+    scale: 0.5;
+}
+.close-button-container:hover{
+    background-color: red;
+}
+
+#new-tab-container{
+    position: relative;
+    top: 1px;
+    left: 4px;
+    pointer-events: all;
+    width: 17px;
+    height: 17px;
+    margin-top: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#new-tab-container:hover{
+    background-color: rgba(54, 57, 66, 0.9);
+}
+#new-tab-container > img{
+    height: 100%;
+    scale: 0.7;
+}
+.tabs-arrow{
+    pointer-events: all;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-top: 2px;
+    margin-left: 1px;
+}
+.tabs-arrow > img{
+    height: 100%;
+    scale: 0.6;
+    padding-left: 2px;
+}
+#right-arrow{
+    // margin-top: 1px;
+    margin-left: 2px;
+}

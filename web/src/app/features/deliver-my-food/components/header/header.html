@@ -1,0 +1,26 @@
+<div id="main-container" #mainContainer>
+  <div id="left-container">
+    <div id="empty-left-space"></div>
+    <div id="logo-container" (click)="goTo.emit('')">
+      <img src="/food-icon2.png" draggable="false" />
+    </div>
+    <div id="name-container" (click)="goTo.emit('')">
+      <p>Deliver My Food</p>
+    </div>
+  </div>
+  <div id="right-container">
+    <div id="empty-right-space"></div>
+    <div id="profile-container" (click)="goTo.emit('/profile')">
+      <img src="/profile-icon.png" draggable="false" />
+    </div>
+    <div id="announcement-container" [style.display]="headerSize() === 'smaller' ? 'none' : 'flex'">
+      <span>Ravi de vous revoir, {{ name }} </span>
+      <span [style.display]="headerSize() === 'regular' ? 'block' : 'none'">
+        @if (balance() !== 0) {
+          <span>(</span>
+          <span id="money">{{ balance() }} €</span> <span>)</span>
+        }
+      </span>
+    </div>
+  </div>
+</div>

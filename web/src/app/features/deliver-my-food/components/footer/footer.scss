@@ -1,0 +1,43 @@
+#main-container{
+    height: 85px;
+    max-height: 85px;
+    width: 100%;
+    background-color: rgb(158, 158, 158);
+}
+p{
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-align: center;
+    font-size: 17px;
+}
+#year-container{
+    grid-column: 2;
+}
+
+#about-us-container{
+    grid-column: 4;
+}
+
+#conditions-container{
+    grid-column: 6;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.small-container{
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    gap: 4px;
+}
+
+.regular-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 2fr;
+    grid-template-rows: 1fr;
+}

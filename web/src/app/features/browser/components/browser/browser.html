@@ -1,0 +1,17 @@
+<div id="browser-app-container">
+  <app-browser-tabs
+    [tabs]="tabs()"
+    [isTabsFull]="isTabsFull()"
+    (addNewTab)="addNewTab()"
+    (changeIsTabsFull)="setIsTabsFull($event)"
+    (selectTab)="setTabSelect($event)"
+    (closeTab)="closeTab($event)"
+  />
+  <app-browser-toolbar
+    [tabs]="tabs()"
+    (refreshEvent)="refreshPage()"
+    (goBackEvent)="goBack()"
+    (goNextEvent)="goNext()"
+  />
+  <app-browser-viewport style="display: block; height: calc(100% - 40px)" [tabs]="tabs()" />
+</div>

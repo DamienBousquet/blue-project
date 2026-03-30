@@ -1,0 +1,16 @@
+<div id="main-container">
+  @if (isLoading()) {
+    <div id="loader-container">
+      <app-loader />
+    </div>
+  }
+  @if (error()) {
+    <div id="error-container">
+      <p class="error-message">{{ error() }}</p>
+    </div>
+  }
+  @if (!isLoading() && !error()) {
+    <app-map [currentLocation]="status()" [points]="placePoints()" />
+    <app-delivery-details [currentStatus]="status()" />
+  }
+</div>

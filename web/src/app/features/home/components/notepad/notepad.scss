@@ -1,0 +1,202 @@
+#notepad-app-container{  
+    position: relative;
+    width: 100%;
+    height: calc(100% - 20px);
+    // display: flex;
+    flex-direction: column;
+    max-height: 100%;
+}
+
+p{
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+#upper-side{
+    height: 20px;
+    position: relative;
+    top: -20px;
+    font-size: 11px;
+    font-family: Verdana, sans-serif;
+    pointer-events: none;
+    display: flex;
+}
+#image-container{
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 2px;
+}
+#image-container > img {
+    height: 100%;
+    scale: 0.9;
+    margin-left: 1px;
+    margin-top: 1px;
+}
+#upper-side > span{
+    position: relative;
+    top: 3px;
+    margin-left: 6px;
+    user-select: none;
+}
+
+#options{
+    position: relative;
+    width: 100%;
+    height: 15px;
+    background: rgb(1, 20, 124);
+    top: -20px;
+    display: flex;
+    border-bottom: double rgb(38, 53, 139) 2px;
+}
+#file-container{
+    position: relative;
+    width: 39px;
+    height: 100%;
+    margin-left: 3px;
+}
+#file-container:hover, #view-container:hover{
+    background-color:rgba(54, 57, 66, 0.9);
+    cursor: pointer;
+}
+#file-container > p ,#view-container > p{
+    font-size:11px;
+    margin-left: 2px;
+    top: -1px;
+}
+#view-container{
+    position: relative;
+    width: 50px;
+    height: 100%;
+    margin-left: 5px;
+}
+
+
+#file-detail-container{
+    position: absolute;
+    background: rgb(1, 20, 124);
+    width: 92px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    top: 17px;
+    z-index: 1;
+}
+#view-detail-container{
+    position: absolute;
+    background: rgb(1, 20, 124);
+    width: 110px;
+    height: 42px;
+    display: flex;
+    flex-direction: column;
+    top: 17px;
+    left: 44px;
+    z-index: 1;
+}
+.detail-container-text{
+    margin-left: 3px;
+}
+.detail-container-text:hover{
+    background-color:rgba(54, 57, 66, 0.9);
+    cursor: pointer;
+}
+.detail-container-text > p {
+    font-size:11px;
+    margin-left: 2px;
+    top: -1px;
+}
+
+#editor-container{
+    position: relative;
+    width: 100%;
+    //17 =  options (15) + options border (2)
+    height: calc(100% - 17px);
+    top: -20px;
+}
+
+.editor {
+    background-color: rgb(151, 148, 118);
+    color: white;
+    width: 100%;
+    height: 100%;
+    resize: none;         
+    border: none;
+    outline: none;
+    padding: 0;            
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: monospace;
+    // font-size: 14px;
+    line-height: 1.4;
+
+    white-space: pre-wrap;
+    overflow: auto;
+}
+
+#save-panel-container{
+    position: absolute;
+    width: 50%;
+    height: 80px;
+    top: 100px;
+    left: 25%;
+    border: solid black 2px;
+    background-color: rgb(1, 20, 124);
+    display: flex;
+    flex-direction: column;
+}
+#input-side{
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#input-container{
+    display: flex;
+    justify-content: center;
+}
+#input-container > input{
+    width: 70px;
+
+    resize: none;         
+    outline: none;
+    padding: 0;            
+    margin: 0;
+}
+#buttons-side{
+    width: 100%;
+    height: 30%;
+    display: grid;
+    grid-template-rows: 7fr 3fr;
+    grid-template-columns: 1fr 5fr 1fr 5fr 1fr;
+}
+#save-as-container{
+    grid-row: 1;
+    grid-column: 2;
+}
+#cancel-container{
+    grid-row: 1;
+    grid-column: 4;
+}
+.save-panel-button{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border: solid transparent 2px;
+}
+.save-panel-button:hover{
+    cursor: pointer;
+    border: solid aqua 2px;
+}
+.save-panel-button > p{
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+}

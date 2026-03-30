@@ -1,0 +1,77 @@
+#main-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: aliceblue;
+}
+
+.empty-space{
+    height: 50px;
+    width: 100%;
+}
+.small-empty-space{
+    height: 20px;
+    width: 100%;
+}
+
+#search-bar-container{
+    width: 100%;
+    height: 45px;
+}
+
+.app-search-sentence-container{
+    width: 95%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+app-search-sentence{
+    width: 100%;
+    display: flex;
+}
+
+
+.sections-container{
+    width: 95%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 1fr;
+    gap: 4px;
+    margin-top: 10px;
+}
+
+app-matching-restaurants {
+    grid-column: 1;
+    height: 310px;
+}
+app-dish-catalog{
+    grid-column: 2;
+    height: 310px;
+}
+app-cart{
+    width: 95%;
+    // background-color: burlywood;
+}
+
+.no-interaction {
+  pointer-events: none;
+}
+
+//responsive
+.app-search-sentence-container-responsive{
+    width: auto;
+}
+.sections-responsive{
+    display: flex;
+    flex-direction: column;
+}
+.app-matching-restaurants-responsive{
+    width: 100%;
+    height: 300px;
+}
+.app-dish-catalog-responsive{
+    width: 100%;
+    height: 300px;
+}

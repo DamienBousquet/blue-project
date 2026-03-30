@@ -1,0 +1,24 @@
+<div id="main-container" #mainContainer>
+  @if (isLoading()) {
+    <app-loader style="height: 1000px"></app-loader>
+  }
+  @if (!isLoading()) {
+    <app-restaurant-of-the-day
+      [parentSize]="mainContainerSize()"
+      [dayRestaurant]="dayFoodPlaceFeatures()"
+      [timeToDeliver]="estimatedTimeDelivery()"
+      [style.width]="mainContainerSize() === 'regular' ? '100%' : '100%'"
+    />
+    <app-home-search-bar
+      [parentSize]="mainContainerSize()"
+      (searchEvent)="search($event)"
+      [style.width]="mainContainerSize() === 'regular' ? '90%' : '100%'"
+    />
+    <app-popular-restaurants
+      [parentSize]="mainContainerSize()"
+      [foodPlaces]="allPlaces()"
+      (goToFoodPlaceEvent)="goToFoodPlace($event)"
+      [style.width]="mainContainerSize() === 'regular' ? '90%' : '100%'"
+    />
+  }
+</div>

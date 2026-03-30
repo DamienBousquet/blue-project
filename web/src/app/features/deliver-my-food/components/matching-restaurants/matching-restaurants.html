@@ -1,0 +1,48 @@
+<div id="main-container">
+  @for (foodPlace of foodPlaces(); track foodPlace.id) {
+    <div class="food-place-context">
+      <div
+        class="food-place-container"
+        (click)="selectFoodPlace(foodPlace.id)"
+        [class.selected-food-place]="selectedIdFoodPlace == foodPlace.id"
+      >
+        <div class="food-place-first-raw">
+          <div class="food-place-title-container">
+            <div class="food-place-title-logo-container">
+              <img
+                [src]="
+                  foodPlace.icon ? `/food-icon/${foodPlace.icon}.png` : '/food-icon/default.png'
+                "
+                draggable="false"
+              />
+            </div>
+            <div class="food-place-title-name-container">
+              <p>&nbsp;{{ foodPlace.name }}</p>
+            </div>
+          </div>
+          <div class="food-place-rating-container">
+            <div class="star-container">
+              <app-star />
+            </div>
+            <div class="rating-container">
+              <p>{{ foodPlace.ratingAvg }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="food-place-second-raw">
+          <div class="food-place-tags-container">
+            <p>Plats : {{ foodPlace.tags }}</p>
+          </div>
+          <div class="food-place-time-delivery-container">
+            <div class="time-deliver-logo-container">
+              <img src="/time-icon.png" draggable="false" />
+            </div>
+            <div class="time-deliver-text-container">
+              <p>&nbsp;{{ foodPlace.estimatedTimeDelivery }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

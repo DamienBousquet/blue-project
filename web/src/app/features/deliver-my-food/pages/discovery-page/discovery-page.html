@@ -1,0 +1,50 @@
+<div id="main-container" #mainContainer>
+  <div class="empty-space"></div>
+  <div id="search-bar-container">
+    <app-search-bar (searchEvent)="changeQueryUrl($event)" />
+  </div>
+  <div
+    class="app-search-sentence-container"
+    [class.app-search-sentence-container-responsive]="mainContainerSize() !== 'regular'"
+  >
+    <app-search-sentence
+      [foodPlaces]="foodPlaces()"
+      [lastSearch]="lastSearch()"
+      [isLoading]="isLoading()"
+      (allFoodPlacesEvent)="goToAllFoodPlaces()"
+    />
+  </div>
+  @if (isLoading()) {
+    <app-loader />
+    <div class="sections-container"></div>
+    <div class="empty-space"></div>
+    <div class="empty-space"></div>
+  }
+  @if (!isLoading()) {
+    <div class="sections-container" [class.sections-responsive]="mainContainerSize() !== 'regular'">
+      <app-matching-restaurants
+        [foodPlaces]="foodPlaces()"
+        (selectFoodPlaceEvent)="setDishes($event)"
+        [class.app-matching-restaurants-responsive]="mainContainerSize() !== 'regular'"
+      />
+      <app-dish-catalog
+        [foodPlaces]="foodPlaces()"
+        [dishes]="dishes()"
+        [isLoading]="isLoadingDishes()"
+        [dishQuantities]="dishQuantities()"
+        (quantityChangeEvent)="dishQuantities.set($event)"
+        [class.app-dish-catalog-responsive]="mainContainerSize() !== 'regular'"
+      />
+    </div>
+    <div class="small-empty-space"></div>
+    <app-cart [items]="dishQuantities()" [deliveryFee]="deliveryFee()" (orderEvent)="openModal()" />
+    <div class="empty-space"></div>
+  }
+  @if (modalState().isOpen) {
+    <app-modal
+      [text]="modalState().text"
+      [isLock]="modalState().isLock"
+      (closeModal)="closeModal($event)"
+    ></app-modal>
+  }
+</div>

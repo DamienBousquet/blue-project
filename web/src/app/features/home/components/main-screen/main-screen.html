@@ -1,0 +1,164 @@
+<div id="main-container" (click)="clickOnScreen()">
+  <img
+    id="background-image"
+    src="/background3.jpg"
+    alt="background"
+    draggable="false"
+    (dragstart)="(false)"
+    (mousedown)="pressClickOnBackground($event)"
+  />
+
+  <div id="blueRectangle" #blueRectangle></div>
+
+  @for (shortcut of shortcuts; track shortcut.id) {
+    @if (shortcut.type === 'browser') {
+      <div
+        class="shortcut"
+        [ngStyle]="getShortcutPosition(shortcut.id)"
+        (mousedown)="startDragShortcut($event, shortcut.id)"
+        (dblclick)="openProgram('browser')"
+        [class.backgroundColorShortcut]="shortcut.isSelected"
+      >
+        <div class="shortcut-image-container">
+          <img src="/browser-shortcut.png" draggable="false" />
+        </div>
+        <div class="shortcut-text">
+          <p class="no-select shortcut-title">{{ shortcut.title }}</p>
+        </div>
+      </div>
+    }
+    @if (shortcut.type === 'notepad') {
+      <div
+        class="shortcut"
+        [ngStyle]="getShortcutPosition(shortcut.id)"
+        (mousedown)="startDragShortcut($event, shortcut.id)"
+        (dblclick)="openNotepad(shortcut.id)"
+        [class.backgroundColorShortcut]="shortcut.isSelected"
+      >
+        <div class="shortcut-image-container">
+          <img src="/NotebookShortcut.png" draggable="false" />
+        </div>
+        <div class="shortcut-text">
+          <p class="no-select shortcut-title">{{ shortcut.title }}.txt</p>
+        </div>
+      </div>
+    }
+  }
+  @for (app of desktopApplications(); let i = $index; track app.id) {
+    @if (app.appType === 'ticTacToe' && app.state !== 'closed') {
+      <div
+        appResizableWindow
+        id="ticTacToe-container"
+        [appId]="app.id"
+        [appType]="app.appType"
+        [ngStyle]="getPosition('ticTacToe')"
+        (mousedown)="mousedownApp('ticTacToe')"
+        [class.hidden]="app.state === 'minimized'"
+        [style.z-index]="Z.WINDOWS_BASE + i"
+      >
+        <div class="upper-bar-windows" (mousedown)="startDrag($event, 'ticTacToe')">
+          <div
+            class="reduceButton"
+            (click)="hideApp(app.id)"
+            (mousedown)="$event.stopPropagation()"
+          >
+            <img src="/reduceButton.png" draggable="false" />
+          </div>
+          <div
+            class="closeButton"
+            (click)="closeApp(app.id)"
+            (mousedown)="$event.stopPropagation()"
+          >
+            <img src="/closeButton.png" draggable="false" />
+          </div>
+        </div>
+        <app-tictactoe></app-tictactoe>
+      </div>
+    }
+    @if (app.appType === 'browser' && app.state !== 'closed') {
+      <div
+        appResizableWindow
+        id="browser-container"
+        [appId]="app.id"
+        [appType]="app.appType"
+        [isFullScreen]="app.isFullScreen"
+        [ngStyle]="getPosition('browser')"
+        (mousedown)="mousedownApp('browser')"
+        [class.hidden]="app.state === 'minimized'"
+        [style.z-index]="Z.WINDOWS_BASE + i"
+      >
+        <div class="upper-bar-windows" (mousedown)="startDrag($event, 'browser')">
+          <div
+            class="reduceButton"
+            (click)="hideApp(app.id)"
+            (mousedown)="$event.stopPropagation()"
+          >
+            <img src="/reduceButton.png" draggable="false" />
+          </div>
+          @if (app.isFullScreen === false) {
+            <div
+              class="fullscreenButton"
+              (click)="putFullScreenBrowser()"
+              (mousedown)="$event.stopPropagation()"
+            >
+              <img src="/fullscreenButton.png" draggable="false" />
+            </div>
+          } @else {
+            <div
+              class="fullscreenButton"
+              (click)="removeFullScreenBrowser()"
+              (mousedown)="$event.stopPropagation()"
+            >
+              <img src="/fullscreenButton2.png" draggable="false" />
+            </div>
+          }
+
+          <div
+            class="closeButton"
+            (click)="closeApp(app.id)"
+            (mousedown)="$event.stopPropagation()"
+          >
+            <img src="/closeButton.png" draggable="false" />
+          </div>
+        </div>
+        <app-browser (closeBrowser)="closeApp('browser')"></app-browser>
+      </div>
+    }
+    @if (app.appType === 'notepad' && app.state !== 'closed') {
+      <div
+        appResizableWindow
+        id="notepad-container"
+        [appId]="app.id"
+        [appType]="app.appType"
+        [ngStyle]="getPosition(app.id)"
+        (mousedown)="mousedownApp(app.id)"
+        [class.hidden]="app.state === 'minimized'"
+        [style.z-index]="Z.WINDOWS_BASE + i"
+      >
+        <div class="upper-bar-windows" (mousedown)="startDrag($event, app.id)">
+          <div
+            class="reduceButton"
+            (click)="hideApp(app.id)"
+            (mousedown)="$event.stopPropagation()"
+          >
+            <img src="/reduceButton.png" draggable="false" />
+          </div>
+          <div
+            class="closeButton"
+            (click)="closeApp(app.id)"
+            (mousedown)="$event.stopPropagation()"
+          >
+            <img src="/closeButton.png" draggable="false" />
+          </div>
+        </div>
+        <app-notepad
+          [id]="app.id"
+          [titleInput]="app.title"
+          [contentInput]="app.content"
+          (titleOutput)="setNewShortcutTitle($event)"
+          (contentOutput)="setNewNotepadContent($event)"
+        />
+      </div>
+    }
+  }
+</div>

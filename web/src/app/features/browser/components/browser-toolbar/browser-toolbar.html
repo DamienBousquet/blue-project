@@ -1,0 +1,33 @@
+<div id="main-container">
+  <div id="arrows-container">
+    <div
+      id="previous-arrow-container"
+      (click)="goBack()"
+      [class.clickable-arrow]="isTherePreviousPage()"
+    >
+      <img
+        src="/previous-arrow-history.png"
+        draggable="false"
+        [class.grey-arrow]="!isTherePreviousPage()"
+      />
+    </div>
+    <div id="next-arrow-container" (click)="goNext()" [class.clickable-arrow]="isThereNextPage()">
+      <img
+        src="/next-arrow-history.png"
+        draggable="false"
+        [class.grey-arrow]="!isThereNextPage()"
+      />
+    </div>
+    <div
+      id="refresh-arrow-container"
+      #refreshArrowHistory
+      (click)="clickRefresh()"
+      [class.rotating]="isRotating"
+    >
+      <img src="/refresh-arrow-history.png" draggable="false" />
+    </div>
+  </div>
+  <div id="url-container">
+    <input type="search" [ngModel]="url()" disabled />
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div id="notepad-app-container">
+  <div id="upper-side">
+    <div id="image-container">
+      <img src="{{ notepadPath }}" />
+    </div>
+    <span
+      >{{ title }}
+      @if (isTextChanged) {
+        *
+      }
+    </span>
+  </div>
+  <div id="options">
+    <div id="file-container" (click)="clickOnFile()">
+      <p>Fichier</p>
+    </div>
+    <div id="view-container" (click)="clickOnView()">
+      <p>Affichage</p>
+    </div>
+  </div>
+  @if (isFileOpen) {
+    <div id="file-detail-container">
+      <div class="detail-container-text" (click)="clickPanelSave()">
+        <p>Enregistrer</p>
+      </div>
+      <div class="detail-container-text" (click)="clickPanelSaveAs()">
+        <p>Enregistrer Sous...</p>
+      </div>
+    </div>
+  }
+  @if (isViewOpen) {
+    <div id="view-detail-container">
+      <div class="detail-container-text" (click)="zoomIn()">
+        <p>Zoom Avant</p>
+      </div>
+      <div class="detail-container-text" (click)="zoomOut()">
+        <p>Zoom Arrière</p>
+      </div>
+      <div class="detail-container-text" (click)="resetZoom()">
+        <p>Restaurer le zoom</p>
+      </div>
+    </div>
+  }
+  <div id="editor-container">
+    <textarea
+      [(ngModel)]="text"
+      #editor
+      class="editor"
+      maxlength="2000"
+      spellcheck="false"
+      [disabled]="disableEditor"
+      [style.fontSize.px]="fontSize"
+      (input)="textChanged($event)"
+      (keydown)="onKeydown($event)"
+      (focus)="onEditorFocus()"
+    ></textarea>
+  </div>
+  @if (showSavePanel) {
+    <div id="save-panel-container">
+      <div id="input-side">
+        <div id="input-container">
+          <input type="text" maxlength="10" #inputName />
+          <p>.txt</p>
+        </div>
+      </div>
+      <div id="buttons-side">
+        <div id="save-as-container" class="save-panel-button" (click)="clickButtonSaveAs()">
+          <p>Enregistrer</p>
+        </div>
+        <div id="cancel-container" class="save-panel-button" (click)="clickButtonCancelSaveAs()">
+          <p>Annuler</p>
+        </div>
+      </div>
+    </div>
+  }
+</div>

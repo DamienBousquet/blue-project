@@ -1,0 +1,13 @@
+<div id="url-container">
+  <input
+    #input
+    type="search"
+    placeholder="Rechercher un plat (burger, ramen, pizza...)"
+    maxlength="35"
+    (input)="onInputChange($event)"
+    (keyup.enter)="search()"
+  />
+  <div id="logo-search-container" (click)="search()">
+    <img src="/icon-search-3.png" draggable="false" />
+  </div>
+</div>

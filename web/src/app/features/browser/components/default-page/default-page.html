@@ -1,0 +1,54 @@
+<div id="main-container">
+  <div id="top-part">
+    <div id="weather-container">
+      @if (weather()) {
+        <div id="weather-icon-container">
+          <img src="{{ weather()?.imageUrl }}" draggable="false" />
+        </div>
+        <div id="right-weather">
+          <p class="temperature">{{ weather()?.temperature }}°C</p>
+          <p class="place">{{ weather()?.place }}</p>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div id="presentation-container">
+    <div id="image-container">
+      <img src="/browser3-logo.png" draggable="false" />
+    </div>
+    <div id="browser-title">
+      <p>NetSphere</p>
+    </div>
+  </div>
+  <div id="search-bar-container">
+    <div id="search-bar-context">
+      <div id="logo-search-container">
+        <img src="/icon-search-2.png" />
+      </div>
+      <input placeholder="En construction..." disabled />
+    </div>
+  </div>
+  <div id="shortcuts-container">
+    <div
+      id="food-delivery-container"
+      (mouseenter)="mouseEnter($event)"
+      (mouseleave)="mouseLeave($event)"
+      (click)="clickIcon('http://delivermyfood.com')"
+    >
+      <div id="food-delivery-icon-container">
+        <img src="/food-icon2.png" draggable="false" alt="http://delivermyfood.com" />
+      </div>
+      <div id="food-delivery-text-container"><p>Deliver My Food</p></div>
+    </div>
+    <div id="street-shop-icon-container">
+      <img draggable="false" />
+    </div>
+  </div>
+
+  <div id="empty-space"></div>
+
+  <div id="url-information-container" #urlInformationContainer>
+    <p>{{ urlInformation() }}</p>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div id="browser-viewport-container">
+  @for (tab of tabs(); track tab.id) {
+    <div [class.active]="tab.isSelected === true" [class.non-active]="tab.isSelected !== true">
+      <ng-container
+        *ngComponentOutlet="resolveTabComponent(tab); inputs: { id: tab.id }"
+        style="height: 100%"
+      ></ng-container>
+    </div>
+  }
+</div>

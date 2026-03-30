@@ -1,0 +1,58 @@
+<div
+  id="main-container"
+  #mainContainer
+  [class.main-container-responsive]="mainContainerSize() !== 'regular'"
+>
+  @if (isLoading()) {
+    <div id="loader-container">
+      <app-loader />
+    </div>
+  }
+  @if (error()) {
+    <div id="error-container">
+      <p class="error-message">Une erreur est parvenue.</p>
+    </div>
+  }
+  @if (!isLoading() && !error()) {
+    <div class="left-section" [class.section-responsive]="mainContainerSize() !== 'regular'">
+      <div class="empty-space"></div>
+      <div id="order-list-title">
+        <p class="title">Mes Commandes</p>
+      </div>
+      <div id="order-list">
+        <app-order-data-table [orders]="orderList()" />
+      </div>
+      @if (currentDeliveryMessage() !== '') {
+        <div id="delivery-container" (click)="goToDelivery()">
+          <p>{{ currentDeliveryMessage() }}</p>
+        </div>
+      }
+    </div>
+    <div class="right-section" [class.section-responsive]="mainContainerSize() !== 'regular'">
+      <div class="empty-space"></div>
+      <div id="information-title">
+        <p class="title">Mes Informations</p>
+      </div>
+      <div id="information-container">
+        <div id="information-container-name">
+          <p>Nom : {{ user()?.name }}</p>
+        </div>
+        <div id="information-container-email">
+          <p>Mail : {{ user()?.email }}</p>
+        </div>
+        <div id="information-container-location">
+          <p>Adresse : {{ user()?.location }}</p>
+        </div>
+      </div>
+      <div id="information-container-balance">
+        <p>Votre Balance : {{ user()?.balance }} €</p>
+      </div>
+      <div id="button-add-money-container">
+        <button disabled class="button">Recharger</button>
+      </div>
+      <div id="button-logout-container">
+        <button disabled class="button">Se déconnecter</button>
+      </div>
+    </div>
+  }
+</div>

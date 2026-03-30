@@ -1,0 +1,107 @@
+@if (panelActualValue == 'windows') {
+  <div id="windows-panel" class="panel">
+    <div
+      id="profile-icon-container"
+      (mouseenter)="showProfileText = true"
+      (mouseleave)="showProfileText = false"
+    >
+      <img src="{{ profileIconPath }}" draggable="false" />
+    </div>
+    @if (showProfileText) {
+      <div
+        id="showProfileText"
+        (mouseenter)="showProfileText = true"
+        (mouseleave)="showProfileText = false"
+      >
+        <p class="no-select">marcooo@mail.com</p>
+      </div>
+    }
+
+    <div
+      id="shutdown-icon-container"
+      (mouseenter)="showShutdownText = true"
+      (mouseleave)="showShutdownText = false"
+      (click)="refresh()"
+    >
+      <img src="{{ shutdownIconPath }}" draggable="false" />
+    </div>
+    @if (showShutdownText) {
+      <div
+        id="showShutdownText"
+        (mouseenter)="showShutdownText = true"
+        (mouseleave)="showShutdownText = false"
+        (click)="refresh()"
+      >
+        <p class="no-select">Arrêter</p>
+      </div>
+    }
+  </div>
+}
+@if (panelActualValue == 'search') {
+  <div
+    id="search-panel"
+    class="panel"
+    [style.height.px]="searchPanelResultHeight + 25"
+    [style.top.px]="787 - searchPanelResultHeight"
+  >
+    <div id="result-container" [style.height.px]="searchPanelResultHeight">
+      @if (isSearchPanelResult == false) {
+        <div id="no-result-container">
+          <p>Aucun résultat :'(</p>
+        </div>
+      }
+      @if (isSearchPanelResult == true) {
+        @for (program of programsFound; track program.name) {
+          <div id="search-panel-detail" (click)="clickOnProgram(program)">
+            <div id="search-image-container">
+              <img src="/{{ program.logo }}" draggable="false" />
+            </div>
+            <div id="search-text-container">
+              <p class="no-select">{{ program.name }}</p>
+            </div>
+          </div>
+        }
+      }
+    </div>
+    <div id="input-container">
+      <input
+        #searchInput
+        type="text"
+        maxlength="14"
+        placeholder="Rechercher..."
+        (input)="searchProgram($event)"
+      />
+    </div>
+  </div>
+}
+@if (panelActualValue == 'network') {
+  <div id="network-container" class="panel">
+    <div id="network-image-container">
+      <img src="/wifi.png" draggable="false" />
+    </div>
+    <div id="network-text-container">
+      <p id="network-name-box" class="no-select">CheapBox -</p>
+      <p id="network-internet-speed" class="no-select">{{ internetSpeed() }} Kb/s</p>
+    </div>
+  </div>
+}
+@if (panelActualValue == 'volume') {
+  <div id="volume-container" class="panel">
+    <div id="volume-image-container">
+      <img [src]="volumeLogoPath()" draggable="false" />
+    </div>
+    <div id="slider-container">
+      <input
+        #sliderElement
+        id="slider"
+        type="range"
+        min="0"
+        max="99"
+        step="1"
+        value="{{ sliderValue }}"
+        (input)="onSliderChange($event)"
+      />
+    </div>
+  </div>
+}
+<!-- notepad preview is made only using .ts-->

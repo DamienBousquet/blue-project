@@ -1,0 +1,118 @@
+#main-container{
+    width: 100%;
+    height: 100%;
+    // background-color: aquamarine;
+    // border: solid 2px black;
+}
+p{
+    color: black;
+}
+
+.food-place-context{
+    height: 50px;
+    width: 100%;
+}
+.food-place-context:nth-child(1){
+    border-top: solid black 2px;
+}
+.food-place-container{
+    display: flex;
+    flex-direction: column;
+    // margin-left: 10px;
+    // margin-right: 10px;
+    border-bottom: solid 2px black;
+    border-right: solid 2px black;
+    border-left: solid 2px black;
+    cursor: pointer;
+}
+.food-place-first-raw, .food-place-second-raw{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    height: 25px;
+}
+.food-place-second-raw{
+    // width: calc(100% - 10px);
+}
+.food-place-title-container{
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+.food-place-title-logo-container{
+    width: 19px;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+}
+.food-place-title-logo-container > img{
+    height: 100%;
+}
+.food-place-title-name-container{
+    display: flex;
+    align-items: center;
+    height: 22px;
+    width: calc(100% - 19px);
+}
+.food-place-title-name-container > p {
+    font-weight: bold;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.food-place-rating-container{
+    display: flex;
+}
+// .star-container{
+//     width: 19px;
+//     height: 19px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+app-star{
+    width: 19px;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rating-container{
+    margin-left: 5px;
+}
+
+.food-place-tags-container{
+    width: 70%;
+}
+.food-place-tags-container > p{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.food-place-time-delivery-container{
+    display: flex;
+}
+.time-deliver-logo-container{
+    width: 19px;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+}
+.time-deliver-logo-container > img{
+    height: 100%;
+    scale : 0.9;
+}
+.time-deliver-text-container{
+    width: 30px;
+}
+.time-deliver-text-container > p{
+    // font-size: 18px;
+}
+
+
+.selected-food-place{
+    background-color: rgb(158, 158, 158);
+}

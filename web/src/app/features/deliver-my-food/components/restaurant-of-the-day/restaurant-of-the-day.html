@@ -1,0 +1,127 @@
+<div id="restaurant-of-the-day-container">
+  <div id="empty-space"></div>
+  <!-- <div class="title-container" [class.title-container-responsive]="parentSize() !== 'regular'">
+    <div class="title-first-part" [class.title-first-part-responsive]="parentSize() !== 'regular'">
+      <div id="title-first-part-container">
+        <span>Restaurant du jour</span>
+      </div>
+    </div>
+  </div> -->
+  <div id="reduction-container" [class.reduction-container-responsive]="parentSize() !== 'regular'">
+    <div class="marquee">
+      <div class="reduction-full-sentence">
+        <div class="reduction-logo-container">
+          <img src="/discount-icon-2.png" draggable="false" />
+        </div>
+        <div class="reduction-full-sentence-text-container">
+          <p>
+            Profitez de <span class="green bold">10%</span> de réduction chez
+            <span class="bold">{{ dayRestaurant()?.name }}</span
+            >, le restaurant du jour !
+          </p>
+        </div>
+      </div>
+      <div class="reduction-full-sentence">
+        <div class="reduction-logo-container">
+          <img src="/discount-icon-2.png" draggable="false" />
+        </div>
+        <div class="reduction-full-sentence-text-container">
+          <p>
+            Profitez de <span class="green bold">10%</span> de réduction chez
+            <span class="bold">{{ dayRestaurant()?.name }}</span
+            >, le restaurant du jour !
+          </p>
+        </div>
+      </div>
+      <div class="reduction-full-sentence">
+        <div class="reduction-logo-container">
+          <img src="/discount-icon-2.png" draggable="false" />
+        </div>
+        <div class="reduction-full-sentence-text-container">
+          <p>
+            Profitez de <span class="green bold">10%</span> de réduction chez
+            <span class="bold">{{ dayRestaurant()?.name }}</span
+            >, le restaurant du jour !
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="best-items-container"
+    [class.best-item-container-responsive]="parentSize() !== 'regular'"
+  >
+    <div class="best-items-first-part">
+      <div class="first-deal">
+        <div class="deal-price">
+          <p>
+            <span style="text-decoration: line-through"
+              >{{ dayRestaurant()?.firstDish.price }} €</span
+            ><span class="green bold">&nbsp;{{ dayRestaurant()?.firstDish.newPrice }} €</span>
+          </p>
+        </div>
+        <div class="deal-food-container">
+          <img src="{{ firstDealLogoPath }}" draggable="false" />
+        </div>
+        <div class="deal-name">
+          <p>{{ dayRestaurant()?.firstDish.name }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="best-items-second-part">
+      <div class="second-deal">
+        <div class="deal-price">
+          <p>
+            <span style="text-decoration: line-through"
+              >{{ dayRestaurant()?.secondDish.price }} €</span
+            ><span class="green bold">&nbsp;{{ dayRestaurant()?.secondDish.newPrice }} €</span>
+          </p>
+        </div>
+        <div class="deal-food-container">
+          <img src="{{ secondDealLogoPath }}" draggable="false" />
+        </div>
+        <div class="deal-name">
+          <p>{{ dayRestaurant()?.secondDish.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer" [class.footer-responsive]="parentSize() !== 'regular'">
+    @if (dayRestaurant() && timeToDeliver()) {
+      <div id="time-to-deliver-container">
+        <div id="time-to-deliver-logo-container">
+          <img src="/time-icon-white.png" draggable="false" />
+        </div>
+        <div id="time-to-deliver-text-container">
+          <p>
+            Temps de livraison estimé :
+            <span id="time-to-deliver-specific-minutes">{{ timeToDeliver() }} minutes</span> !
+          </p>
+        </div>
+      </div>
+    }
+    <div class="rating-container" [class.rating-container-responsive]="parentSize() !== 'regular'">
+      <div id="stars-container">
+        <div class="star-container">
+          <app-star-custom [starNumber]="1" [ratingAvg]="rating()" />
+        </div>
+        <div class="star-container">
+          <app-star-custom [starNumber]="2" [ratingAvg]="rating()" />
+        </div>
+        <div class="star-container">
+          <app-star-custom [starNumber]="3" [ratingAvg]="rating()" />
+        </div>
+        <div class="star-container">
+          <app-star-custom [starNumber]="4" [ratingAvg]="rating()" />
+        </div>
+        <div class="star-container">
+          <app-star-custom [starNumber]="5" [ratingAvg]="rating()" />
+        </div>
+      </div>
+      <div id="rating">
+        <p>{{ rating() }}</p>
+      </div>
+    </div>
+  </div>
+</div>

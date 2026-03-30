@@ -1,0 +1,172 @@
+#main-container {
+  background: rgba(19, 37, 138, 0.829);
+  backdrop-filter: blur(10px);
+  height: 40px;
+  width: 1283px;
+  display: flex;
+  justify-content: flex-start;
+}
+.divIcon:hover{
+  background: rgba(19, 37, 138, 0.529);
+}
+img::selection {
+  outline: none;
+}
+.hasFocus{
+  background: rgba(104, 138, 250, 0.85); 
+}
+
+#unmovable-app-container-left{
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100px;
+  display: flex;
+  justify-content: flex-start;
+}
+#windows-logo {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+}
+#windows-logo img {
+  height: 100%;
+  scale: 0.7;
+}
+
+#search-logo {
+  height: 100%;
+  width: 50px;
+}
+
+#search-logo img {
+  width: 100%;
+  scale: 0.4;
+  margin-top: -5px;
+}
+
+
+
+
+
+#movable-app-container{
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 1038px;
+  display: flex;
+}
+#browser-logo {
+  height: 100%;
+  width: 50px;
+  // background: rgba(160, 99, 42, 0.6);
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#browser-logo-image-container{
+  width: 50px;
+  height: 39px;
+  display: flex;
+  justify-content: center;
+}
+#browser-logo-image-container > img {
+  height: 100%;
+  scale: 0.6;
+}
+
+#tictactoe-logo, #notepad-logo{
+  height: 100%;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#tictactoe-logo-image-container, #notepad-logo-image-container{
+  width: 50px;
+  height: 39px;
+  display: flex;
+  justify-content: center;
+}
+#tictactoe-logo-image-container > img, #notepad-logo-image-container > img {
+  height: 100%;
+  scale: 0.6;
+  margin-top: 1px;
+}
+#empty-space{
+  top: 0;
+  height: 100%;
+  width: 983px;
+}
+
+
+
+#unmovable-app-container-right{
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 150px;
+  display: flex;  
+  justify-content: flex-start;
+}
+
+#sound-logo {
+  height: 100%;
+  width: 40px;
+  margin-right: 5px;
+}
+#sound-logo img {
+  width: 100%;
+  scale: 0.5;
+  margin-top: 1px;
+}
+
+#network-logo {
+  height: 100%;
+  width: 45px;
+}
+#network-logo img {
+  width: 100%;
+  scale: 0.7;
+}
+
+#date-specification {
+  height: 100%;
+  width: 60px;
+  // background: rgba(39, 2, 56, 0.6);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.date {
+  font-size: 12px;
+  color: whitesmoke;
+}
+#higher-date {
+  margin-top: 2px;
+}
+#higher-date,
+#lower-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.working-application{
+  position: relative;
+  width: 90%;
+  height: 1px;
+  background-color: aquamarine;
+}
+
+#blackBar{
+  position: relative;
+  width: 2px;
+  background-color: rgba(0,0,0, 0.6);
+  right: 8px;
+}

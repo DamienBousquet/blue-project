@@ -1,0 +1,30 @@
+<div id="main-container">
+  @if (!hasItems()) {
+    <div id="cart-logo-container">
+      <img src="/cart.png" draggable="false" />
+    </div>
+  }
+  @if (hasItems()) {
+    <div id="cumulation-container">
+      @for (item of itemArray(); track item.dish?.id) {
+        <div class="line-item">
+          <span class="item-name">{{ item.quantity }}x {{ item.dish?.name }}</span>
+          <span class="item-price">{{
+            safeTotalPricePerDish().getTotalPrice(item) | number: '1.2-2'
+          }}</span>
+        </div>
+      }
+      <div class="line-item">
+        <span class="item-name">Frais de livraison</span>
+        <span class="item-price">{{ deliveryFee() | number: '1.2-2' }}€</span>
+      </div>
+      <div class="line-item total">
+        <span class="item-name">Total</span>
+        <span class="item-price">{{ totalPrice() | number: '1.2-2' }}€</span>
+      </div>
+      <div id="order-button-container">
+        <div id="order-button" (click)="order()"><span>Commander</span></div>
+      </div>
+    </div>
+  }
+</div>
