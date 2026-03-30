@@ -88,9 +88,6 @@ export class DiscoveryPage {
       const searchTerm = this.extractSearchTerm(link);
       if (searchTerm == null) this.foodPlaces.set([]);
       if (searchTerm && this.lastSearch() !== searchTerm) {
-        console.log('start requests');
-        console.log(this.lastSearch());
-        console.log(searchTerm);
         this.search(decodeURIComponent(searchTerm));
         this.lastSearch.set(searchTerm);
       }
@@ -131,7 +128,6 @@ export class DiscoveryPage {
   }
 
   search(urlValue: string) {
-    console.log('this.search');
     const searchText = urlValue;
     if (!searchText) return;
     // this.lastSearch.set(searchText);
@@ -146,7 +142,6 @@ export class DiscoveryPage {
             throw new Error('');
           }
           this.foodPlaces.set(data);
-          console.log('set foodPlaces');
           const ids = data.map((foodPlace: FoodPlace) => {
             return foodPlace.id;
           });
@@ -227,7 +222,6 @@ export class DiscoveryPage {
   }
 
   setDishes(idFoodPlace: number) {
-    console.log('setDishes');
     this.dishesSubcription?.unsubscribe();
     this.dishes.set([]);
     this.dishQuantities.set({});

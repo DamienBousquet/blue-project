@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,4 +7,10 @@ import { RouterLink } from '@angular/router';
   templateUrl: './presentation.html',
   styleUrl: './presentation.scss',
 })
-export class Presentation {}
+export class Presentation {
+  isOnMobile = signal<boolean>(false);
+
+  ngOnInit() {
+    if (window.innerWidth < 800) this.isOnMobile.set(true);
+  }
+}

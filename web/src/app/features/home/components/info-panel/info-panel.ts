@@ -104,7 +104,6 @@ export class InfoPanel {
 
   //Because of @if in html, some elements (here slider) are not initialized, so no ngAfterViewInit
   ngAfterViewChecked() {
-    console.log(this.internetSpeed$);
     const slider = this.sliderElement?.nativeElement;
     if (slider) {
       const percent = (this.sliderValue / 99) * 100;

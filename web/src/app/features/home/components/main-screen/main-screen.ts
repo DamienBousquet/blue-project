@@ -93,7 +93,7 @@ export class MainScreen {
     private movableStore: MovableStore,
   ) {
     effect(() => {
-      console.log('Desktop changed:', this.desktopApplications());
+      // console.log('Desktop changed:', this.desktopApplications());
       const apps = this.desktopApplications();
       this.manageNewNotepad();
       this.manageShortcutsName();

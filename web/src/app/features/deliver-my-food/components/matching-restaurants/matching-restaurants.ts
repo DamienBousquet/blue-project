@@ -19,7 +19,6 @@ export class MatchingRestaurants {
       if (foodPlaces && foodPlaces.length === 1) {
         const foodPlace = foodPlaces[0];
         this.selectedIdFoodPlace = foodPlace.id;
-        console.log(foodPlaces);
         this.selectFoodPlaceEvent.emit(foodPlace.id);
       }
     });

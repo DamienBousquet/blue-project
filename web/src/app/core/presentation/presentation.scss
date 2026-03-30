@@ -48,11 +48,6 @@ $light-gray: #f8f9fa;
         text-decoration: none;
         font-weight: 500;
         transition: all 0.3s ease;
-
-        &:hover {
-          color: darken($secondary-color, 10%);
-        }
-
         i {
           font-size: 1.5rem;
         }
@@ -67,10 +62,19 @@ $light-gray: #f8f9fa;
         border-radius: 5px;
         font-weight: 600;
         transition: all 0.3s ease;
-
-        &:hover {
-          background-color: darken($primary-color, 10%);
-        }
+      }
+      .cta-button-disabled {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: $primary-color;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: line-through;
+        pointer-events: none;
+        cursor: not-allowed; 
       }
     }
 

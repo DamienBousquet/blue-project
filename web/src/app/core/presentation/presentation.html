@@ -13,11 +13,16 @@
         <i class="fab fa-github"></i>
         <span>Voir sur GitHub</span>
       </a>
-      <a routerLink="/blueproject" class="cta-button">Accéder à l'application</a>
+      @if (isOnMobile()) {
+        <a class="cta-button-disabled">Accéder à l'application</a>
+      }
+      @if (!isOnMobile()) {
+        <a routerLink="/blueproject" class="cta-button">Accéder à l'application</a>
+      }
     </div>
 
     <p class="note">
-      L'application disposant d'un bureau interactif, la version mobile n'est donc pas prévue.
+      L'application disposant d'un bureau interactif, la version mobile n'est ainsi pas prévue.
     </p>
   </div>
 </main>
