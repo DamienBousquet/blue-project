@@ -35,7 +35,7 @@ services:
   db:
     build:
       context: .
-      dockerfile: ./docker/db.dockerfile
+      dockerfile: ./docker/db/db.dockerfile
     environment:
       POSTGRES_USER: "${DB_USER}"
       POSTGRES_PASSWORD: "${DB_PASSWORD}"

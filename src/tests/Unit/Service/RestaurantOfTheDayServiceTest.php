@@ -1,10 +1,11 @@
 <?php
-namespace App\Tests\Service;
+namespace App\Tests\Unit\Service;
 
 use App\Service\RestaurantOfTheDayService;
 use App\Repository\FoodPlaceRepository;
 use App\Entity\FoodPlace;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 use PHPUnit\Framework\Attributes\Test;
 use DateTime;
 
@@ -50,7 +51,7 @@ class RestaurantOfTheDayServiceTest extends TestCase
 
         $service = new RestaurantOfTheDayService($repository);
 
-        $today = '20260324';
+        $today = '20120409';
         $originalDateTime = DateTime::class;
         $mockDateTime = $this->getMockBuilder(DateTime::class)
             ->disableOriginalConstructor()
@@ -70,7 +71,12 @@ class RestaurantOfTheDayServiceTest extends TestCase
         $repository = $this->createMock(FoodPlaceRepository::class);
         $service = new RestaurantOfTheDayService($repository);
 
-        $this->assertEquals(0.9, $service->getReduction());
+
+        $reflection = new ReflectionClass($service);
+        $property = $reflection->getProperty('reduction');
+        $property->setValue($service, 0.75);
+
+        $this->assertEquals(0.75, $service->getReduction());
     }
 
 

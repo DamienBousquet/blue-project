@@ -17,8 +17,8 @@ img::selection {
 }
 
 #windows-panel {
-  top: 722px;
-  left: 318px;
+  top: 580px;
+  left: 0px;
   width: 50px;
   height: 90px;
   display: flex;
@@ -83,8 +83,8 @@ img::selection {
 
 
 #search-panel {
-  // top: 750px;
-  left: 368px;
+  left: 50px;
+  // top: 540px;
   width: 180px;
   display: flex;
   flex-direction: column;
@@ -147,8 +147,8 @@ input:focus {
 
 
 #network-container{
-  top: 767px;
-  left: 1401px;
+  top: 625px;
+  left: 1083px;
   width: 200px;
   height: 45px;
   display: flex;
@@ -183,8 +183,8 @@ input:focus {
 
 
 #volume-container{
-  top: 767px;
-  left: 1401px;
+  top: 625px;
+  left: 1083px;
   width: 200px;
   height: 45px;
   display: flex;

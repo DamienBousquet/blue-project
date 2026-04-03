@@ -1,5 +1,5 @@
 <?php
-namespace App\Tests\UseCase;
+namespace App\Tests\Unit\UseCase;
 
 use App\Entity\Dish;
 use App\UseCase\GetRestaurantOfTheDayData;

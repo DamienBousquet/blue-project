@@ -1,5 +1,5 @@
 <?php
-namespace App\Tests\UseCase;
+namespace App\Tests\Unit\UseCase;
 
 use App\UseCase\GetWeather;
 use App\Repository\UtilsRepository;
